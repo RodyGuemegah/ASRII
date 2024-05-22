@@ -30,8 +30,8 @@ function headerASRI($sousDossier, $navBar = 1)
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a class="navbar-brand" href="#">
-                    <img src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
+                <a class="navbar-brand" href="<?= $sousDossier.'index.php' ?>">
+                    <img  src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
                 </a>
                 <!-- Contenu du menu -->
             </div>
@@ -70,7 +70,7 @@ function headerASRI($sousDossier, $navBar = 1)
                     </li>
                     <li class="nav-item">
                         <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
-                        else echo "<a class='nav-link' href='../pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
+                        else echo "<a class='nav-link' href='".$sousDossier."../pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
                     </li>
                 </ul>
                 <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="fa fa-bars"></i></button>
