@@ -2,7 +2,7 @@
 include 'BDD.php';
 
 // Requête SQL
-$sql = "SELECT `Nom_sup`, `Nom_Cours`, `Nom_fichier` FROM `Support` INNER JOIN `Cours` ON Support.Id_cours = Cours.Id_cours ORDER BY `Nom_Cours`;";
+$sql = "SELECT `Nom_sup`, `Nom_Cours`, `Nom_fichier`, `Date_ajout` FROM `Support` INNER JOIN `Cours` ON Support.Id_cours = Cours.Id_cours ORDER BY `Nom_Cours`;";
 
 // Exécution de la requête et récupération des résultats
 $result = $mysqli->query($sql);
@@ -26,6 +26,7 @@ $mysqli->close();
         <thead class="thead-primary">
             <tr>
                 <th class="colNom">Nom du support</th>
+                <th>Date</th>
                 <th class="colTel">Télécharger</th>
             </tr>
         </thead>
@@ -39,7 +40,7 @@ $mysqli->close();
                     <?php endif; ?>
                     <!-- Nouvelle ligne de cours -->
                     <tr>
-                        <th class="rowCour" colspan="2" scope="row">Cours de
+                        <th class="rowCour" colspan="3" scope="row">Cours de
                             <?php echo htmlspecialchars($support['Nom_Cours']); ?></th>
                     </tr>
                     <?php
@@ -48,7 +49,8 @@ $mysqli->close();
                 ?>
                 <tr>
                     <th scope="row"><?php echo htmlspecialchars($support['Nom_sup']); ?></th>
-                    <td style="text-align: center;">
+                    <td><?php echo htmlspecialchars($support['Date_ajout']); ?></td>
+                    <td style="text-align: center;font-size: 0.5em;">
                         <div style="display: inline-block;">
                             <button class="Btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" class="svgIcon">
