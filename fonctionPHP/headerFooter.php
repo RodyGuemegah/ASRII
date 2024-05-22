@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 function headerASRI($sousDossier, $navBar = 1)
 {
     $sousDossier = ($sousDossier == true ? '../' : '');
+    require_once($sousDossier.'fonctionPHP/identification.php')
+
 
     ?>
     <!DOCTYPE html>
@@ -14,13 +16,13 @@ function headerASRI($sousDossier, $navBar = 1)
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= $sousDossier . 'node_modules/bootstrap/dist/css/bootstrap.css' ?>">
         <script src="https://kit.fontawesome.com/c1c91a6488.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
+        <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="<?= $sousDossier . 'asset/css/style.css' ?>">
-        <title>ASRII</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>        <title>ASRII</title>
     </head>
 
     <body>
@@ -62,6 +64,13 @@ function headerASRI($sousDossier, $navBar = 1)
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Recherche</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="<?= $sousDossier . 'pageHtml/enseignant.html.php' ?>">Section enseignant</a>
+                    </li>
+                    <li class="nav-item">
+                        <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
+                        else echo "<a class='nav-link' href='../pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
                     </li>
                 </ul>
                 <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="fa fa-bars"></i></button>
@@ -123,6 +132,7 @@ function footerASRI($sousDossier)
     ?>
     </body>
     <script src='<?= $sousDossier . "node_modules/bootstrap/dist/js/bootstrap.js" ?>'></script>
+    <script src='<?= $sousDossier . "js/fonction.js" ?>'></script>
     <footer class="site-footer text-white p-4">
         <div class="container">
             <div class="row">

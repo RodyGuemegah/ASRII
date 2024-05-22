@@ -105,3 +105,10 @@ tr {
     animation: slide-in-top 1s linear infinite;
 }
 /*fin CSS fonction eleveSupportsCours.php*/
+
+
+/*début CSS fonction enseignant*/
+
+.noLink{
+    text-decoration: none;
+}
