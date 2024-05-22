@@ -13,6 +13,7 @@ if (function_exists('headerASRI')) {
 } else {
     echo "<p>La fonction headerASRI n'est pas définie dans headerFooter.php</p>";
 }
+headerASRI(false, '');
 ?>
 
 <div class="container">

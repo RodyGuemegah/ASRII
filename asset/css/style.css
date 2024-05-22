@@ -13,3 +13,10 @@
 
 
 
+.connexionbg{
+    background-image: url('../image/logoEvry.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* ou background-size: 100%; */
+    width: 500px;
+    height: 500px;
+}
