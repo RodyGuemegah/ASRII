@@ -3,6 +3,7 @@
 function headerASRI($sousDossier, $navBar = 1)
 {
     $sousDossier = ($sousDossier == true ? '../' : '');
+    require_once($sousDossier.'fonctionPHP/identification.php')
 
     ?>
     <!DOCTYPE html>
@@ -37,7 +38,7 @@ function headerASRI($sousDossier, $navBar = 1)
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Accueil</a>
+                    <a class="nav-link" href="<?= $sousDossier . 'index.php' ?>">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Le campus</a>
@@ -80,7 +81,11 @@ function headerASRI($sousDossier, $navBar = 1)
                 <a class="nav-link" href="#">Recherche</a>
             </li>
         </ul>
+            <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-xl"></i>';
+             else echo "<a class='nav-link' href='../pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
+
     </div>
+        
 </nav>
 
     
@@ -94,6 +99,7 @@ function footerASRI($sousDossier)
     ?>
     </body>
     <script src='<?= $sousDossier . "node_modules/bootstrap/dist/js/bootstrap.js" ?>'></script>
+    <script src='<?= $sousDossier . "js/fonction.js" ?>'></script>
     <footer class="site-footer text-white p-4">
         <div class="container">
             <div class="row">
