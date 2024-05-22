@@ -6,15 +6,10 @@ error_reporting(E_ALL);
 
 // Inclure le fichier headerFooter.php
 include_once ('fonctionPHP/headerFooter.php');
-
-// Vérifier si la fonction headerASRI existe
-if (function_exists('headerASRI')) {
-    headerASRI(false, '');
-} else {
-    echo "<p>La fonction headerASRI n'est pas définie dans headerFooter.php</p>";
-}
-headerASRI(false, '');
+// Afficher le header
+headerASRI(false, 1);
 ?>
+
 
 <div class="container">
     <div class="row">
