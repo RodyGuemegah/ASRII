@@ -50,7 +50,7 @@ function CreationCompte()
 //Fonction Qui permet la création d'un compte en sécurisant le mode de passe 
 {   
     
-    include basdir()."fonctionPHP/BDD.php";
+    include "BDD.php";
     if (isset($_POST['mail'])) {
         $mail = $_POST['mail'];
         $result = $mysqli -> query("SELECT Mail FROM User WHERE Mail='$mail'");
@@ -68,7 +68,7 @@ function Connexion()
 //Fonction Qui permet de se connecter à son compte via un email et un mdp
 {
     
-    include basdir()."fonctionPHP/BDD.php";
+    include "BDD.php";
     if (isset($_POST['mail'])) {
         $mailConnexion = $_POST['mail'];
         $MdpConnexion = $_POST['mdp1'];
@@ -97,7 +97,7 @@ function Connexion()
 function Veriflogin($redirect=false)
 //Fonction qui permet de verifier si un utilisateur est connecter
 {
-    include basdir()."fonctionPHP/BDD.php";
+    include "BDD.php";
     if(isset($_COOKIE["token"])){
         $mail = $_COOKIE["Mail"];
         $token = $_COOKIE["token"];
@@ -117,7 +117,7 @@ function Deconnexion()
 //Fonction Qui permet de se déconnecter de son compte
 {
     
-    include basdir()."fonctionPHP/BDD.php";
+    include "BDD.php";
     $mail = $_COOKIE["Mail"];
     $rep = $mysqli->query("UPDATE `User` SET `Token` = '' WHERE Mail='$mail'");
     setcookie("Mail", "", time() - 1, "/");
