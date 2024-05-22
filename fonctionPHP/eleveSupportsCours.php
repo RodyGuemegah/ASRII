@@ -20,9 +20,9 @@ if ($result->num_rows > 0) {
 // Fermeture de la connexion
 $mysqli->close();
 ?>
-
+<link rel="stylesheet" href="../asset/css/style.css">
 <div class="table-wrap">
-    <table class="table">
+    <table class="tableSup">
         <thead class="thead-primary">
             <tr>
                 <th class="colNom">Nom du support</th>
