@@ -58,7 +58,7 @@ listeSupport(2);
 <script>
 function swalSupportSend(content){
     Swal.fire({
-        title: 'Ajouter un support de cours',
+        title: '<i class="fa-solid fa-sheet-plastic"></i>Ajouter un support de cours',
         html: content,
         showCancelButton: true,
         confirmButtonText: 'Ajouter',
