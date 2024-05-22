@@ -14,39 +14,88 @@ headerASRI(false, 1);
 <div class="container">
     <div class="row">
         <div class="col-md-8">
+        <div class="card m-5 p-5">
+                <a id="haut"></a>
+                <h4 class="head text-center">
+                    <i class="bi bi-geo-alt"></i>
+                    Présentation de la formation
+                </h4>
+                <div class="container">
+                    <p>
+                        Le parcours ASR2I de la licence professionnelle MIAW se concentre sur l'Administration et la Sécurisation des Réseaux et Services Internet et Intranet. 
+                        Il prépare les étudiants à gérer un parc informatique, superviser et sécuriser un réseau local, ainsi qu'à intégrer des produits et services Intranet et/ou Internet. 
+                        Les postes ciblés se situent à mi-chemin entre techniciens supérieurs et ingénieurs. 
+                        À la fin de ce parcours, les étudiants acquièrent les compétences suivantes : 
+                        <ul>
+                            <li>Modélisation des données pour une meilleure intégration des services web.</li>
+                            <li>Conception et réalisation de sites web Intranet et Internet, ainsi que de CMS.</li>
+                            <li>Programmation côté client et serveur.</li>
+                            <li>Configuration d'un réseau local pour un ensemble de postes informatiques, dans un environnement hétérogène (Windows, Linux), et interconnexion avec l'extérieur.</li>
+                            <li>Administration quotidienne d'un parc hétérogène de postes serveurs et bureautiques liés au réseau informatique pour garantir disponibilité et sécurité.</li>
+                            <li>Intégration de solutions de sécurité des applications et des données.</li>                 
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
             <div class="card m-5 p-5">
                 <a id="haut"></a>
                 <h4 class="head text-center">
                     <i class="bi bi-geo-alt"></i>
-                    Programmes
+                    Les Programmes de la formation
                 </h4>
-                <button class="btn btn-primary" id="toggleProgramText">Consulter le programmes de la formation</button>
+                <br>
+                <!-- Tronc commun -->
+                <!-- <button class="btn btn-primary" id="toggleProgramText">Le tronc commun</button> -->
+                <button class="btn btn-primary" onclick="toggleProgram('programText1')">Le tronc commun</button>
                 <div class="container">
-                    <p id="programText" class="sub-heading" style="display: none;">
-                        I'm studying for a professional degree in IT and
-                        I'm passionate about software development.
-                        As a student deeply passionate about development,
-                        I find myself continually immersed in the ever-evolving world of technology.
-                        From the moment I wrote my first line of code,
-                        I was captivated by the power to create and innovate.
-                        This passion has become the driving force behind my academic pursuits and personal projects.
-                        I approach each task with enthusiasm and a hunger for knowledge.
-                        My aim is to utilize those skills to make meaningful contributions to society through software
-                        development.
-                        Software development is not just a job title; it’s a lifestyle.
-                        Beyond the technical aspects,
-                        I am drawn to the collaborative nature of software development.
-                        Working in teams, sharing ideas, and learning from others is an enriching experience that fuels
-                        my growth as
-                        a developer.
-                        In addition to coding, I am also keenly interested in staying updated with industry trends,
-                        attending
-                        workshops, and participating in hackathons.
-                        My goal is to continue developing skills that will allow me to contribute positively to society
-                        through
-                        programming.
-                        Motivated, rigorous and a team player. I aspire to became a full-stack development engineer.</p>
+                    <p>
+
+                        <ul id="programText1" class="sub-heading" style="display: none;"> 
+                            <h6>Communication et Connaissance de l'Entreprise</h6>
+                            <ul>
+                                <li>Communication et technique de recherche d'emploi</li>
+                                <li>Gestion et management de projets</li>
+                                <li>Organisation et Gestion des Entreprises</li>
+                                <li>Anglais</li>
+                            </ul>
+
+                            <h6>Intégration des réseaux locaux et développement intranet et internet</h6>
+                            <ul>
+                                <li>Réseaux Informatiques</li>
+                                <li>Outils de configurations systèmes et virtualisations</li>
+                                <li>Programmation objets en Python</li>
+                                <li>Bases de données relationnnelles</li>
+                            </ul>
+
+                            <h6>Développement des services WEB intranet et internet</h6>
+                            <ul>
+                                <li>Programmation des services Web</li>
+                                <li>Développement en HTML, CSS, JavaScript, PHP, XML ...</li>
+                                <li>Conception des sites internet, CMS, WP, Joomla</li>
+                            </ul>
+                        </ul>
+                    </p>                  
                     </p>
+                </div>
+
+                <!-- <button class="btn btn-primary" id="toggleProgramText">ASRII</button> -->
+                <button class="btn btn-primary" onclick="toggleProgram('programText2')">Matière spécifique au ASRII</button>
+
+                <div class="container">
+                <p>
+
+                    <ul id="programText2" class="sub-heading" style="display: none;"> 
+                        <ul>
+                            <li>Sécurité Réseaux et des Applications</li>
+                            <li>Interconnexion des réseaux locaux</li>
+                            <li>Programmation systèmes / Suopervision</li>
+                            <li>Administration et Configuration des Services Intranet et Internet ( Windows / Linux )</li>
+                            <li>Projets tuteurés</li>
+                        </ul>
+                    </ul>
+                </p>                  
+                
                 </div>
             </div>
 
@@ -80,7 +129,7 @@ headerASRI(false, 1);
                                         Stage.</p>
                                 </div>
                                 <a href="projetFormation.html" class="btn btn-secondary btn-lg btn-block">En savoir
-                                    plus</a>
+                                    plus </a>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -144,13 +193,13 @@ headerASRI(false, 1);
 
 <script>
     // Fonction pour basculer la visibilité du texte
-    function toggleProgramText() {
-        var programText = document.getElementById("programText");
-        if (programText.style.display === "none") {
-            programText.style.display = "block";
-        } else {
-            programText.style.display = "none";
-        }
+    function toggleProgram(id) {
+                var programText = document.getElementById(id);
+                if (programText.style.display === "none") {
+                    programText.style.display = "block";
+                } else {
+                    programText.style.display = "none";
+                }
     }
 
     // Écouteur d'événements pour le clic sur le bouton
