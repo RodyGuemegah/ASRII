@@ -51,16 +51,39 @@ function headerASRI($sousDossier, $navBar = 1)
     </div>
 </nav>
 
-        <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand text-light" href="#">LP MIAW</a>
-            </div>
-        </nav>
-        <nav class="navbar navbar-expand-sm bg-primary navbar-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand text-light" href="#"></a>
-            </div>
-        </nav>    
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light flex-wrap">
+    <div class="container-fluid justify-content-center"> <!-- Ajout de la classe justify-content-center -->
+        <ul class="navbar-nav me-auto mx-auto"> <!-- Ajout de la classe mx-auto -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Contact</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Link 1</a></li>
+                    <li><a class="dropdown-item" href="#">Link 2</a></li>
+                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">NavBar</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Link 1</a></li>
+                    <li><a class="dropdown-item" href="#">Link 2</a></li>
+                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Université</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Formation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Recherche</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    
         <?php
 }
 
