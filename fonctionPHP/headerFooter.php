@@ -21,115 +21,106 @@ function headerASRI($sousDossier, $navBar = 1)
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="<?= $sousDossier . 'asset/css/style.css' ?>">
         <title>ASRII</title>
-
     </head>
 
-
     <body>
-        <?php if ($navBar): ?>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <!-- Logo -->
-                    <a class="navbar-brand" href="#">
-                        <img src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
-                    </a>
-                    <!-- Contenu du menu -->
-                   
-                </div>
-            </nav>
-
-            <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light flex-wrap">
-                <div class="container-fluid justify-content-center"> <!-- Ajout de la classe justify-content-center -->
-                    <ul class="navbar-nav me-auto mx-auto"> <!-- Ajout de la classe mx-auto -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Présentation</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Link 1</a></li>
-                                <li><a class="dropdown-item" href="#">Link 2</a></li>
-                                <li><a class="dropdown-item" href="#">Link 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Formation</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                        href="#offcanvasEspaceEntreprise">Link1</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                        href="#offcanvasEspaceEntreprise">Link2</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                        href="#offcanvasEspaceEntreprise">Link3</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">AMISSIONS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Formation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Recherche</a>
-                        </li>
-                    </ul>
-                    <button class=" btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="fa fa-bars"></i></button>
-
-                </div>
-            </nav>
-        <?php endif; ?>
-        <!-- Offcanvas Navbar -->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <?php if ($navBar): ?>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
+                </a>
+                <!-- Contenu du menu -->
             </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= $sousDossier . 'index.php' ?>">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Le campus</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">La vie étudiante</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+        </nav>
 
-                    </li>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light flex-wrap">
+            <div class="container-fluid justify-content-center">
+                <ul class="navbar-nav me-auto mx-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace entreprise</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Présentation</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link
-                                    1</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link
-                                    2</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link
-                                    3</a></li>
+                            <li><a class="dropdown-item" href="#">Link 1</a></li>
+                            <li><a class="dropdown-item" href="#">Link 2</a></li>
+                            <li><a class="dropdown-item" href="#">Link 3</a></li>
                         </ul>
                     </li>
-
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Formation</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link 1</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link 2</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ADMISSIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Formation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recherche</a>
+                    </li>
                 </ul>
+                <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="fa fa-bars"></i></button>
             </div>
+        </nav>
+    <?php endif; ?>
+
+    <!-- Offcanvas Navbar -->
+    <div class="offcanvas offcanvas-start text-bg-primary" id="offcanvasNavbar" tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $sousDossier . 'index.php' ?>">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Le campus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">La vie étudiante</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace entreprise</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link 1</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link 2</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Link 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- Offcanvas pour Espace Entreprise -->
-        <!-- Offcanvas pour Espace Entreprise -->
-
-
-        <?php
-}
-
-// Testez la fonction en l'appelant directement pour voir si elle fonctionne
-headerASRI(false, 1);
-?>
+    <!-- Offcanvas pour Espace Entreprise -->
+    <div class="offcanvas offcanvas-start" id="offcanvasEspaceEntreprise" tabindex="-1" aria-labelledby="offcanvasEspaceEntrepriseLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasEspaceEntrepriseLabel">Espace Entreprise</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Contenu pour l'espace entreprise.</p>
+        </div>
+    </div>
 
     <?php
+}
 
 
-    function footerASRI($sousDossier)
-    {
-        $sousDossier = ($sousDossier == true ? '../' : '');
-        ?>
+
+function footerASRI($sousDossier)
+{
+    $sousDossier = ($sousDossier == true ? '../' : '');
+    ?>
     </body>
     <script src='<?= $sousDossier . "node_modules/bootstrap/dist/js/bootstrap.js" ?>'></script>
     <footer class="site-footer text-white p-4">
@@ -151,8 +142,7 @@ headerASRI(false, 1);
                 <div class="col-md-2">
                     <h4>Liens utiles</h4>
                     <ul>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a>
-                        </li>
+                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/#contact">Contact</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/carte-emplacements">Commander</a></li>
                     </ul>
@@ -169,8 +159,7 @@ headerASRI(false, 1);
             </div>
         </div>
     </footer>
-
     </html>
     <?php
-    }
-    ?>
+}
+?>
