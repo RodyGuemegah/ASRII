@@ -43,8 +43,8 @@ function listeSupport($E_ID){
             echo "<tr><td>".$support['Date_ajout']."</td>";
             echo "<td>".$support['Nom_sup']."</td>";
             echo '<td class="flex">
-                      <i class="btn btn-default fa-regular fa-eye"></i>
-                      <i class="btn btn-default fa-solid fa-trash" style="color: #e40707;"></i>
+                      <a href="'.$support['Nom_fichier'].'" target="_blank"><i class="btn btn-default fa-regular fa-eye"></i></a>
+                      <i class="btn btn-default fa-solid fa-trash" onclick="deleteSup('.$support['Id_sup'].')" style="color: #e40707;"></i>
                   </td></tr>';
         }
         ?>

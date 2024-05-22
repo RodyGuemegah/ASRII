@@ -18,7 +18,7 @@ headerASRI(true, 1);
     <!-- Deuxième ligne de boîtes -->
     <div class="row m-auto" style="width: 90%;">
         <div class="col-6 p-4 text-center text-white">
-            <a class="border bg-secondary d-block text-white p-2 noLink" href="#">Box 3</a>
+            <a class="border bg-secondary d-block text-white p-2 noLink" href="#">Consulter mon emploi du temps </a>
         </div>
         <div class="col-6 p-4 text-center text-white">
             <a class="border bg-secondary d-block text-white p-2 noLink" href="#">Box 3</a>
