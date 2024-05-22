@@ -1,9 +1,9 @@
 <?php
 include 'BDD.php';
 
-$idUser = 6;
+$token = $_COOKIE['token'];
 // Requête SQL
-$sql = "SELECT `Contenu_note`, `Nom_cours`, `Note` FROM `Notes` INNER JOIN `Cours` ON Notes.Id_cours = Cours.Id_cours WHERE Id_user = ?;";
+$sql = "SELECT `Contenu_note`, `Nom_cours`, `Note` FROM `Notes` INNER JOIN `Cours` ON Notes.Id_cours = Cours.Id_cours INNER JOIN `User` ON Notes.Id_user = User.Id_user WHERE Token = ?;";
 
 // Préparer la déclaration
 $stmt = $mysqli->prepare($sql);
@@ -14,7 +14,7 @@ if ($stmt === false) {
 }
 
 // Lier la variable à la déclaration préparée
-$stmt->bind_param("i", $idUser);
+$stmt->bind_param("i", $token);
 
 // Exécuter la déclaration
 $stmt->execute();
