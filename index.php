@@ -1,6 +1,18 @@
 <?php
+// Afficher les erreurs PHP
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Inclure le fichier headerFooter.php
 include_once ('fonctionPHP/headerFooter.php');
-headerASRI(false, '');
+
+// Vérifier si la fonction headerASRI existe
+if (function_exists('headerASRI')) {
+    headerASRI(false, '');
+} else {
+    echo "<p>La fonction headerASRI n'est pas définie dans headerFooter.php</p>";
+}
 ?>
 
 <div class="container">
@@ -133,10 +145,6 @@ headerASRI(false, '');
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-</div>
 
 <script>
     // Fonction pour basculer la visibilité du texte
@@ -154,5 +162,10 @@ headerASRI(false, '');
 </script>
 
 <?php
-footerASRI(false, '');
+// Vérifier si la fonction footerASRI existe
+if (function_exists('footerASRI')) {
+    footerASRI(false, '');
+} else {
+    echo "<p>La fonction footerASRI n'est pas définie dans headerFooter.php</p>";
+}
 ?>
