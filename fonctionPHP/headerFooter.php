@@ -26,7 +26,7 @@ function headerASRI($sousDossier, $navBar = 1)
     <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="#">
-            <img src="asset/images/logo.png" alt="Logo">
+            <img src="../asset/images/logo.png" alt="Logo">
         </a>
 
         <!-- Bouton pour afficher le menu sur mobile -->
@@ -82,8 +82,7 @@ function headerASRI($sousDossier, $navBar = 1)
             </li>
         </ul>
             <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-xl"></i>';
-             else echo "<a class='nav-link' href='../pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
-
+             else echo "<a class='nav-link' href='".$sousDossier ."pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?> 
     </div>
         
 </nav>
