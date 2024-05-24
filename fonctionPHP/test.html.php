@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 function headerASRI($sousDossier, $navBar = 1)
 {
-    $sousDossier = ($sousDossier == true ? '../' : '');
+    $sousDossier = ($sousDossier ? '../' : '');
 
     ?>
     <!DOCTYPE html>
@@ -22,8 +22,6 @@ function headerASRI($sousDossier, $navBar = 1)
         <link rel="stylesheet" href="<?= $sousDossier . 'asset/css/style.css' ?>">
         <title>ASRII</title>
     </head>
-
-    
 
     <body>
         <?php if ($navBar): ?>
@@ -58,8 +56,8 @@ function headerASRI($sousDossier, $navBar = 1)
                             <a class="nav-link" href="#">Recherche</a>
                         </li>
                     </ul>
-                    <button2 class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i
-                            class="fa fa-bars"></i></button2>
+                    <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i
+                            class="fa fa-bars"></i></button>
                 </div>
             </nav>
         <?php endif; ?>
@@ -97,25 +95,20 @@ function headerASRI($sousDossier, $navBar = 1)
                                     href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
         </div>
-
-        <?php
+    <?php
 }
-
-
 
 function footerASRI($sousDossier)
 {
-    $sousDossier = ($sousDossier == true ? '../' : '');
+    $sousDossier = ($sousDossier ? '../' : '');
     ?>
+    <!-- jQuery -->
     <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
     <!-- Bootstrap JS -->
     <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' ?>"></script>
-    </body>
-    <script src='<?= $sousDossier . "node_modules/bootstrap/dist/js/bootstrap.js" ?>'></script>
     <footer class="site-footer text-white p-4">
         <div class="container">
             <div class="row">
@@ -135,8 +128,7 @@ function footerASRI($sousDossier)
                 <div class="col-md-2">
                     <h4>Liens utiles</h4>
                     <ul>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a>
-                        </li>
+                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/#contact">Contact</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/carte-emplacements">Commander</a></li>
                     </ul>
@@ -155,8 +147,6 @@ function footerASRI($sousDossier)
     </footer>
 
     </html>
-
     <?php
-
 }
 ?>

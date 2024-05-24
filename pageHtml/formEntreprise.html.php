@@ -2,7 +2,21 @@
 include_once ('../fonctionPHP/headerFooter.php');
 headerASRI(true);
 ?>
+<style>
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+</style>
 <div class="card">
     <div class="card-body">
         <div class="card-header col-md bg-dark h4">
@@ -16,7 +30,7 @@ headerASRI(true);
                 <input type="text" placeholder="Entrer votre mail" name="email" required>
 
                 <label for="sites"><b>Sites web</b></label>
-                <input type="text" placeholder="Enter votre sites web" name="sites" required>
+                <input type="text" class="form-input" name="username" placeholder="Nom d'utilisateur">
 
                 <label for="siret"><b>SIRET *</b></label>
                 <input type="text" placeholder="Entrer votre n°SIRET" name="siret" required>
