@@ -4,7 +4,7 @@ headerASRI(true);
 ?>
 
 <?php
-include_once ('../fonctionPHP/eleveSupportsCours.php');
+include_once ('../fonctionPHP/eleve.php');
 ?>
 
 <?php

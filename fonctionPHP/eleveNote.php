@@ -1,7 +1,13 @@
 <?php
 include 'BDD.php';
 
+if (empty($_COOKIE['token'])) {
+    echo "<script>window.location.href = '../';</script>";
+    exit(); 
+}
+
 $token = $_COOKIE['token'];
+
 // Requête SQL
 $sql = "SELECT `Contenu_note`, `Nom_cours`, `Note` FROM `Notes` INNER JOIN `Cours` ON Notes.Id_cours = Cours.Id_cours INNER JOIN `User` ON Notes.Id_user = User.Id_user WHERE Token = ?;";
 
@@ -14,7 +20,7 @@ if ($stmt === false) {
 }
 
 // Lier la variable à la déclaration préparée
-$stmt->bind_param("i", $token);
+$stmt->bind_param("s", $token);
 
 // Exécuter la déclaration
 $stmt->execute();
@@ -39,7 +45,6 @@ $stmt->close();
 // Fermer la connexion
 $mysqli->close();
 ?>
-<link rel="stylesheet" href="../asset/css/style.css">
 <div class="table-wrap">
     <table class="tableSup">
         <thead class="thead-primary">
