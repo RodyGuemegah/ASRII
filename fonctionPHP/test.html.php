@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 function headerASRI($sousDossier, $navBar = 1)
 {
     $sousDossier = ($sousDossier == true ? '../' : '');
-    require_once($sousDossier.'fonctionPHP/identification.php')
+
     ?>
     <!DOCTYPE html>
     <html class="p-0 m-0 fadeInElement" lang="fr">
@@ -14,10 +14,6 @@ function headerASRI($sousDossier, $navBar = 1)
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
-        <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
-        <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'?>"></script>
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="<?= $sousDossier . 'node_modules/bootstrap/dist/css/bootstrap.min.css' ?>">
         <!-- FontAwesome -->
@@ -27,12 +23,14 @@ function headerASRI($sousDossier, $navBar = 1)
         <title>ASRII</title>
     </head>
 
+    
+
     <body>
         <?php if ($navBar): ?>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <!-- Logo -->
-                    <a class="navbar-brand" href="<?= $sousDossier . 'index.php' ?>">
+                    <a class="navbar-brand" href="#">
                         <img src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
                     </a>
                     <!-- Contenu du menu -->
@@ -58,10 +56,6 @@ function headerASRI($sousDossier, $navBar = 1)
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Recherche</a>
-                        </li>
-                        <li class="nav-item">
-                        <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
-                        else echo "<a class='nav-link' href='".$sousDossier."pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
                         </li>
                     </ul>
                     <button2 class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i
@@ -103,29 +97,25 @@ function headerASRI($sousDossier, $navBar = 1)
                                     href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="<?= $sousDossier . 'pageHtml/votreEspace.php' ?>">Espace enseignant</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item"
-                                    href="<?= $sousDossier . 'fonctionPHP/enseignant.php' ?>">Créer un support de cours</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                    href="#offcanvasEspaceEntreprise">Emploi du temps </a></li>
-                        </ul>
-                    </li>
+
                 </ul>
             </div>
         </div>
-    <?php
+
+        <?php
 }
+
+
 
 function footerASRI($sousDossier)
 {
-    $sousDossier = ($sousDossier ? '../' : '');
+    $sousDossier = ($sousDossier == true ? '../' : '');
     ?>
-    <!-- jQuery -->
     <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
     <!-- Bootstrap JS -->
     <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' ?>"></script>
+    </body>
+    <script src='<?= $sousDossier . "node_modules/bootstrap/dist/js/bootstrap.js" ?>'></script>
     <footer class="site-footer text-white p-4">
         <div class="container">
             <div class="row">
@@ -145,7 +135,8 @@ function footerASRI($sousDossier)
                 <div class="col-md-2">
                     <h4>Liens utiles</h4>
                     <ul>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a></li>
+                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a>
+                        </li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/#contact">Contact</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/carte-emplacements">Commander</a></li>
                     </ul>
@@ -162,8 +153,10 @@ function footerASRI($sousDossier)
             </div>
         </div>
     </footer>
-    </body>
+
     </html>
+
     <?php
+
 }
 ?>

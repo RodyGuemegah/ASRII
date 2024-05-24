@@ -112,3 +112,74 @@ tr {
 .noLink{
     text-decoration: none;
 }
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+/* input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+} */
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+.navbar-nav .nav-link:hover  {
+    background-color: #0f69c2; /* Changez la couleur de fond lors du survol */
+    color: #f7f8f9; /* Changez la couleur du texte lors du survol */
+    border-radius: 5px; /* Optionnel : ajoutez un rayon de bordure pour des coins arrondis */
+}
+
+.dropdown-item {
+    background-color: #f7f8f9; /* Changez la couleur de fond lors du survol */
+    color: #3a3df7; /* Changez la couleur du texte lors du survol */
+    border-radius: 5px;
+}
+
+/*fin CSS fonction eleveSupportsCours.php*/
