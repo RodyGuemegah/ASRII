@@ -99,3 +99,5 @@ function swalSupportSend(content){
     });
 }
 </script>
+<?php
+footerASRI(true);

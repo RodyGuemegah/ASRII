@@ -15,9 +15,6 @@ function headerASRI($sousDossier, $navBar = 1)
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
-        <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
-        <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'?>"></script>
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="<?= $sousDossier . 'node_modules/bootstrap/dist/css/bootstrap.min.css' ?>">
         <!-- FontAwesome -->
@@ -125,6 +122,7 @@ function footerASRI($sousDossier)
     <!-- jQuery -->
     <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
     <!-- Bootstrap JS -->
+    <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
     <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' ?>"></script>
     <footer class="site-footer text-white p-4">
         <div class="container">
