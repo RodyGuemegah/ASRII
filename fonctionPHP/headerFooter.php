@@ -14,6 +14,10 @@ function headerASRI($sousDossier, $navBar = 1)
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
+        <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
+        <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'?>"></script>
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="<?= $sousDossier . 'node_modules/bootstrap/dist/css/bootstrap.min.css' ?>">
         <!-- FontAwesome -->
@@ -97,6 +101,15 @@ function headerASRI($sousDossier, $navBar = 1)
                                     d'alternance</a></li>
                             <li><a class="dropdown-item" data-bs-toggle="offcanvas"
                                     href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="<?= $sousDossier . 'pageHtml/votreEspace.php' ?>">Espace enseignant</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item"
+                                    href="<?= $sousDossier . 'fonctionPHP/enseignant.php' ?>">Créer un support de cours</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas"
+                                    href="#offcanvasEspaceEntreprise">Emploi du temps </a></li>
                         </ul>
                     </li>
                 </ul>
