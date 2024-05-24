@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 function headerASRI($sousDossier, $navBar = 1)
 {
-    $sousDossier = ($sousDossier ? '../' : '');
-
+    $sousDossier = ($sousDossier == true ? '../' : '');
+    require_once($sousDossier.'fonctionPHP/identification.php')
     ?>
     <!DOCTYPE html>
     <html class="p-0 m-0 fadeInElement" lang="fr">
@@ -54,6 +54,10 @@ function headerASRI($sousDossier, $navBar = 1)
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Recherche</a>
+                        </li>
+                        <li class="nav-item">
+                        <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
+                        else echo "<a class='nav-link' href='".$sousDossier."pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
                         </li>
                     </ul>
                     <button2 class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i
