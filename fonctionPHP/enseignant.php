@@ -6,6 +6,9 @@ function listeSupport($E_ID){
     include "BDD.php";
     $query = $mysqli -> query("SELECT Support.*, Cours.Nom_Cours FROM Support JOIN Cours ON Support.Id_cours = Cours.Id_cours WHERE Support.Id_user = $E_ID;");
     $supportList = $query->fetch_all(MYSQLI_ASSOC);
+    $queryMatiere = $mysqli -> query("SELECT * FROM Cours");
+    $MatiereList = $queryMatiere->fetch_all(MYSQLI_ASSOC);
+
 
     // Contenu HTML du formulaire
     $formHtml = '
@@ -13,8 +16,14 @@ function listeSupport($E_ID){
             <table class="table table-borderless">
                 <tr>
                     <td>Matière</td>
-                    <td><input type="text" name="matiere" class="form-control"></td>
-                </tr>
+                    <td><select name="matiere" class="form-select" aria-label="Choisir une matière">';
+                    foreach($MatiereList as $matiere){
+                        $formHtml .= '<option value="'.$matiere['Id_cours'].'">'.$matiere['Nom_Cours'].'</option> ';
+                    }
+
+            $formHtml .= '</select>
+                    </td>
+                    </tr>
                 <tr>
                     <td>Nom</td>
                     <td><input type="text" name="nom" class="form-control"></td>
@@ -32,7 +41,7 @@ function listeSupport($E_ID){
     <div class="mb-5 m-1" style="width: 98%;">
         <button class="btn btn-success float-end" onclick='swalSupportSend(<?= $formHtml ?>)'>Ajouter un support de cours</button>
     </div>
-    <table class="table table-border table-hover rounded w-75 m-auto">
+    <table class="table table-border table-striped table-hover rounded w-75 m-auto">
         <tr>
             <th>Date</th>
             <th>Support</th>
@@ -63,6 +72,7 @@ function swalSupportSend(content){
         showCancelButton: true,
         confirmButtonText: 'Ajouter',
         cancelButtonText: 'Annuler',
+        showCancelButton: true,
         reverseButtons: true,
         preConfirm: () => {
             const form = Swal.getPopup().querySelector('#uploadForm');

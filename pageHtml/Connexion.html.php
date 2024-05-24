@@ -22,10 +22,10 @@ else $inscrit=0;
                         <input type="text" class="form-control" id="nom" name="nom" placeholder="ex:gabr" required>
 
                         <label for="mdp1" class="form-label mt-4">Mot de passe</label>
-                        <input type="password" class="form-control" id="mdp1" name="mdp1" placeholder="ex:client@gmail.com" required>
+                        <input type="password" class="form-control" id="mdp1" name="mdp1" placeholder="8 carct min"  required>
 
                         <label for="mdp2" class="form-label mt-4">Confirmer le mot de passe</label>
-                        <input type="password" class="form-control" id="mdp2" name="mdp2" placeholder="ex:client@gmail.com" required>
+                        <input type="password" class="form-control" id="mdp2" name="mdp2" placeholder="8 carct min"  required>
                         
                         <input class="d-none" value="1" name="privilege" type="text">
                     <!-- DIV NUMERO DE SIRET QUI APPARAIT UNIQUEMENT QUAND ENTREPRISE EST SELECTIONE  -->
@@ -51,7 +51,7 @@ else $inscrit=0;
                         <input type="email" class="form-control" id="mail" name="mail" placeholder="ex:client@gmail.com"  required>
 
                         <label for="mdp1" class="form-label mt-4">Mot de passe</label>
-                        <input type="password" class="form-control" id="mdp1" name="mdp1" placeholder="8 carct min" required>
+                        <input type="password" class="form-control" id="mdp1" name="mdp1"  placeholder="8 carct min" required>
 
                         <label for="showMdp" class="form-label mt-4">Afficher le mot de passe</label>
                         <input onclick="showMdp1(this.checked)" type="checkbox" id="showMdp" name="showMdp" class="form-check-input mt-4">
