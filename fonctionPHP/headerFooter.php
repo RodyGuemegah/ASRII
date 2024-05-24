@@ -27,7 +27,7 @@ function headerASRI($sousDossier, $navBar = 1)
     <body>
         <?php if ($navBar): ?>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+                <div id="menuhaut" class="container-fluid">
                     <!-- Logo -->
                     <a class="navbar-brand" href="<?= $sousDossier . 'index.php' ?>">
                         <img src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
@@ -149,7 +149,7 @@ function footerASRI($sousDossier)
                     </ul>
                 </div>
                 <div class="col-md-2">
-                    <a href="#navbar"><i class="far fa-circle-up fa-4x" style="color: #ffffff;"></i></a>
+                    <a href="#menuhaut"><i class="far fa-circle-up fa-4x" style="color: #ffffff;"></i></a>
                 </div>
             </div>
             <hr>
