@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 function headerASRI($sousDossier, $navBar = 1)
 {
-    $sousDossier = ($sousDossier == true ? '../' : '');
+    $sousDossier = ($sousDossier ? '../' : '');
 
     ?>
     <!DOCTYPE html>
@@ -23,14 +23,12 @@ function headerASRI($sousDossier, $navBar = 1)
         <title>ASRII</title>
     </head>
 
-    
-
     <body>
         <?php if ($navBar): ?>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <!-- Logo -->
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="<?= $sousDossier . 'index.php' ?>">
                         <img src="<?= $sousDossier . 'asset/images/logo.png' ?>" alt="Logo">
                     </a>
                     <!-- Contenu du menu -->
@@ -97,25 +95,20 @@ function headerASRI($sousDossier, $navBar = 1)
                                     href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
         </div>
-
-        <?php
+    <?php
 }
-
-
 
 function footerASRI($sousDossier)
 {
-    $sousDossier = ($sousDossier == true ? '../' : '');
+    $sousDossier = ($sousDossier ? '../' : '');
     ?>
+    <!-- jQuery -->
     <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
     <!-- Bootstrap JS -->
     <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' ?>"></script>
-    </body>
-    <script src='<?= $sousDossier . "node_modules/bootstrap/dist/js/bootstrap.js" ?>'></script>
     <footer class="site-footer text-white p-4">
         <div class="container">
             <div class="row">
@@ -135,8 +128,7 @@ function footerASRI($sousDossier)
                 <div class="col-md-2">
                     <h4>Liens utiles</h4>
                     <ul>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a>
-                        </li>
+                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/#contact">Contact</a></li>
                         <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/carte-emplacements">Commander</a></li>
                     </ul>
@@ -153,10 +145,8 @@ function footerASRI($sousDossier)
             </div>
         </div>
     </footer>
-
+    </body>
     </html>
-
     <?php
-
 }
 ?>
