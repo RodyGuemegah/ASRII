@@ -1,18 +1,4 @@
 <?php session_start();
-function basdir(){
-    $basdir = dirname(__FILE__);
-    $curdir = getcwd();
-    $subcnt='';
-    if ( $basdir <> $curdir ) {
-        $reldir = str_replace ( $basdir,'',$curdir);
-        $reldir = str_replace ( "\\","/",$reldir );
-        $subcnt = substr_count($reldir, "/");
-        if ( $subcnt <= 4 ) return '';
-        if ( $subcnt >= 5 ) return '../';
-    }
-    else return '../';
-}
-
 if(isset($_GET['login']))$login=$_GET['login'];
 else $login='inscription';
 
@@ -23,12 +9,27 @@ else $deconnexion=false;
 function GetU_ID()
 {   
 
-    include basdir()."fonctionPHP/functionBDD.php";
+    include "BDD.php";
     if(isset($_COOKIE["token"])){
         $token = $_COOKIE["token"];
-        $index = $objet->RequeteSQlTreatment("SELECT U_ID FROM user WHERE TOKEN = '$token'", true);
-        $index = $index[0]["U_ID"];
-        return $index;
+        $indexsql = $mysqli->query("SELECT Id_user FROM User WHERE Token = '$token'");
+        $index = $indexsql->fetch_assoc(); 
+        $U_ID = $index['Id_user']; 
+        return $U_ID;
+    }else return 0;
+    
+}
+
+function Get_droits($id)
+{   
+
+    include "BDD.php";
+    if(isset($_COOKIE["token"])){
+        $token = $_COOKIE["token"];
+        $privilegesql = $mysqli->query("SELECT Privilege FROM User WHERE Id_user =$id");
+        $privilege = $privilegesql->fetch_assoc(); 
+        $privilege = $privilege['Privilege']; 
+        return $privilege;
     }else return 0;
     
 }
@@ -37,7 +38,7 @@ function GetU_ID()
 function IsAdmin($index)
 {
     
-    include basdir()."FonctionPHP/functionBDD.php";
+    include "BDD.php";
     $token = $_COOKIE["Mail"];
     $IsAdmin = $objet->RequeteSQlTreatment("SELECT ADMINN FROM user WHERE ADMINN = '1' AND Mail='$token' AND U_ID='$index'", true);
     if(isset($IsAdmin[0][0])) return ($IsAdmin[0][0] == 1) ;
@@ -122,7 +123,8 @@ function Deconnexion()
     $rep = $mysqli->query("UPDATE `User` SET `Token` = '' WHERE Mail='$mail'");
     setcookie("Mail", "", time() - 1, "/");
     setcookie("token", "", time() - 1, "/");
-    echo json_encode(array("redirect" => true));
+    json_encode(array("redirect" => true));
+
 }
 
 

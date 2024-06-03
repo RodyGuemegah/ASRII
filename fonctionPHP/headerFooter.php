@@ -2,12 +2,20 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 function headerASRI($sousDossier, $navBar = 1)
 {
     $sousDossier = ($sousDossier == true ? '../' : '');
-    require_once($sousDossier.'fonctionPHP/identification.php')
-    ?>
+    require_once($sousDossier . 'fonctionPHP/identification.php');
+    if (Veriflogin()) {
+        $id = GetU_ID();
+        $droits = Get_droits($id);
+        $_SESSION['U_ID'] = $id;
+        $_SESSION['Privilege'] = Get_droits($id);
+    } else {
+        $id = '';
+        $droits = '';
+    }
+?>
     <!DOCTYPE html>
     <html class="p-0 m-0 fadeInElement" lang="fr">
 
@@ -25,7 +33,7 @@ function headerASRI($sousDossier, $navBar = 1)
     </head>
 
     <body>
-        <?php if ($navBar): ?>
+        <?php if ($navBar) : ?>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div id="menuhaut" class="container-fluid">
                     <!-- Logo -->
@@ -57,19 +65,74 @@ function headerASRI($sousDossier, $navBar = 1)
                             <a class="nav-link" href="#">Recherche</a>
                         </li>
                         <li class="nav-item">
-                        <?php if(Veriflogin())echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
-                        else echo "<a class='nav-link' href='".$sousDossier."pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>";?>
+                            <?php if (Veriflogin()) echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
+                            else echo "<a class='nav-link' href='" . $sousDossier . "pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>"; ?>
                         </li>
                     </ul>
-                    <button2 class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i
-                            class="fa fa-bars"></i></button2>
+                    <?php
+                    if ($droits != '') {
+                        if ($droits == 1){?>
+                            <ul class="navbar-nav mr-2">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace Administrateur</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
+                                                d'alternance</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        <?php }
+
+                        if ($droits == 2){?>
+                            <ul class="navbar-nav mr-2">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace entreprise</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
+                                                d'alternance</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        <?php }
+                        if ($droits == 3){?>
+                            <ul class="navbar-nav mr-2">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace enseignant</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
+                                                d'alternance</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        <?php }
+                        if ($droits == 4){?>
+                            <ul class="navbar-nav mr-2">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace etudiant</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
+                                                d'alternance</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        <?php }
+                    }
+                    ?>
+                    <button2 class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="fa fa-bars"></i></button2>
                 </div>
             </nav>
         <?php endif; ?>
 
         <!-- Offcanvas Navbar -->
-        <div class="offcanvas offcanvas-start text-bg-primary" id="offcanvasNavbar" tabindex="-1"
-            aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-start text-bg-primary" id="offcanvasNavbar" tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
@@ -91,22 +154,17 @@ function headerASRI($sousDossier, $navBar = 1)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace entreprise</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                    href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
-                            <li><a class="dropdown-item"
-                                    href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
+                            <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
                                     d'alternance</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                    href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="<?= $sousDossier . 'pageHtml/votreEspace.php' ?>">Espace enseignant</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item"
-                                    href="<?= $sousDossier . 'fonctionPHP/enseignant.php' ?>">Créer un support de cours</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                    href="#offcanvasEspaceEntreprise">Emploi du temps </a></li>
+                            <li><a class="dropdown-item" href="<?= $sousDossier . 'fonctionPHP/enseignant.php' ?>">Créer un support de cours</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Emploi du temps </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -119,49 +177,51 @@ function footerASRI($sousDossier)
 {
     $sousDossier = ($sousDossier ? '../' : '');
     ?>
-    <!-- jQuery -->
-    <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
-    <!-- Bootstrap JS -->
-    <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
-    <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' ?>"></script>
-    <footer class="site-footer text-white p-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Universités d'Evry</h4>
-                    <p> 23 Bd François Mitterrand, 91000 Évry-Courcouronnes</p>
-                    <p>Contact:+33 01 69 47 70 00</p>
+        <!-- jQuery -->
+        <script src="<?= $sousDossier . 'node_modules/jquery/dist/jquery.min.js' ?>"></script>
+        <script src="<?= $sousDossier . '../js/fonction.js' ?>"></script>
+        <!-- Bootstrap JS -->
+        <script src="<?= $sousDossier . 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
+        <script src="<?= $sousDossier . 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' ?>"></script>
+        <footer class="site-footer text-white p-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Universités d'Evry</h4>
+                        <p> 23 Bd François Mitterrand, 91000 Évry-Courcouronnes</p>
+                        <p>Contact:+33 01 69 47 70 00</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Contactez-nous</h4>
+                        <ul>
+                            <li>Email: Camping.deLaprairie@gmail.com</li>
+                            <li>Téléphone: +12345677589</li>
+                            <li>Adresse: 25 avenue du soleil - 91700</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Liens utiles</h4>
+                        <ul>
+                            <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a></li>
+                            <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/#contact">Contact</a></li>
+                            <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/carte-emplacements">Commander</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#navbar"><i class="far fa-circle-up fa-4x" style="color: #ffffff;"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h4>Contactez-nous</h4>
-                    <ul>
-                        <li>Email: Camping.deLaprairie@gmail.com</li>
-                        <li>Téléphone: +12345677589</li>
-                        <li>Adresse: 25 avenue du soleil - 91700</li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h4>Liens utiles</h4>
-                    <ul>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/privacy-policy/">Mentions légales</a></li>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/#contact">Contact</a></li>
-                        <li><a href="https://camping-rd-l5xebmpq2s.live-website.com/carte-emplacements">Commander</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <a href="#menuhaut"><i class="far fa-circle-up fa-4x" style="color: #ffffff;"></i></a>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">© <?= date('Y') ?> ASRII. Tous droits réservés.</p>
+                    </div>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="text-center">© <?= date('Y') ?> ASRII. Tous droits réservés.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
     </body>
+
     </html>
-    <?php
+<?php
 }
 ?>
