@@ -23,7 +23,10 @@ function swalDeconnexion() {
                     deconnexion: true,
                 },
                 success: function (response) {
-                    window.location.href = "index.php"; // Redirection côté client
+                    var data = JSON.parse(response);
+                    if (data.redirect) {
+                        window.location.href = '../index.php';
+                    }
                 }
             }
             )

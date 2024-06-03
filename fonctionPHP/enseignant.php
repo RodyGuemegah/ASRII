@@ -41,7 +41,7 @@ function listeSupport($E_ID){
     <div class="mb-5 m-1" style="width: 98%;">
         <button class="btn btn-success float-end" onclick='swalSupportSend(<?= $formHtml ?>)'>Ajouter un support de cours</button>
     </div>
-    <table class="table table-border table-striped table-hover rounded w-75 m-auto">
+    <table class="table table-border table-striped table-hover rounded w-75 m-auto mb-5">
         <tr>
             <th>Date</th>
             <th>Support</th>
