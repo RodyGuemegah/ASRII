@@ -3,7 +3,7 @@ include 'BDD.php';
 
 if (isset($_GET['page']) && $_GET['page'] == "Emplois") {
     // Requête SQL
-    $sql = "SELECT `Nom_fichier`,`Date` FROM `Emplois_du_temps` ORDER BY `Date` DESC;";
+    $sql = "SELECT `Nom_fichier`,`Date` FROM `Emplois_du_temps_eleve` ORDER BY `Date` DESC;";
 
     // Exécution de la requête et récupération des résultats
     $result = $mysqli->query($sql);
