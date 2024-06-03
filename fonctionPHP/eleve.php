@@ -138,7 +138,7 @@ if (isset($_GET['page']) && $_GET['page'] == "Note") {
 
 if (isset($_GET['page']) && $_GET['page'] == "OffreAlt") {
     // Requête SQL
-    $sql = "SELECT `Contenu_alt`, `Nom`, `Prenom`, `Mail` FROM `Offre_alternance` INNER JOIN `User` ON Offre_alternance.Id_user = User.Id_user;";
+    $sql = "SELECT `Contenu_alt`, `Nom`, `Prenom`, `Mail` FROM `Offre_alternance` INNER JOIN `User` ON Offre_alternance.Id_user = User.Id_user WHERE Validation_oa = 1;";
 
     // Exécution de la requête et récupération des résultats
     $result = $mysqli->query($sql);
@@ -183,7 +183,7 @@ if (isset($_GET['page']) && $_GET['page'] == "OffreAlt") {
 
 if (isset($_GET['page']) && $_GET['page'] == "Projet") {
     // Requête SQL
-    $sql = "SELECT `Contenu_pro`, `Nom`, `Prenom`, `Mail` FROM `Projet` INNER JOIN `User` ON Projet.Id_user = User.Id_user;";
+    $sql = "SELECT `Contenu_pro`, `Nom`, `Prenom`, `Mail` FROM `Projet` INNER JOIN `User` ON Projet.Id_user = User.Id_user WHERE Validation_prj = 1;";
 
     // Exécution de la requête et récupération des résultats
     $result = $mysqli->query($sql);
