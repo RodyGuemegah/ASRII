@@ -90,10 +90,8 @@ function headerASRI($sousDossier, $navBar = 1)
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace entreprise</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
-                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
-                                                d'alternance</a></li>
-                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="<?= $sousDossier . 'pageHtml/EntrepriseProjet.html.php' ?>">Projets tuteurés</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/EntrepriseAlternance.html.php' ?>">Offres d'Alternances</a></li>
                                     </ul>
                                 </li>
                             </ul>
