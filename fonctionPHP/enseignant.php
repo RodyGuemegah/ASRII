@@ -48,12 +48,14 @@ function listeSupport($E_ID){
             <th>Action</th>
         </tr>
         <?php 
+        $i=0;
         foreach($supportList as $support){
-            echo "<tr><td>".$support['Date_ajout']."</td>";
+            $i++;
+            echo "<tr id='$i'><td>".$support['Date_ajout']."</td>";
             echo "<td>".$support['Nom_sup']."</td>";
             echo '<td class="flex">
                       <a href="'.$support['Nom_fichier'].'" target="_blank"><i class="btn btn-default fa-regular fa-eye"></i></a>
-                      <i class="btn btn-default fa-solid fa-trash" onclick="deleteSup('.$support['Id_sup'].')" style="color: #e40707;"></i>
+                      <i class="btn btn-default fa-solid fa-trash" onclick="deleteSup('.$support['Id_sup'].','.$id.')" style="color: #e40707;"></i>
                   </td></tr>';
         }
         ?>
@@ -98,6 +100,27 @@ function swalSupportSend(content){
         }
     });
 }
+
+function deleteSup(Id_sup){
+
+        swalConfirm();
+        $('.swal2-confirm').on('click', function() {
+             $.ajax({
+                 type: "GET",
+                 url: "addElement.php",
+                 dataType: 'json',
+                 data: {
+                     deleteSupp: true,
+                     Id_sup: Id_sup,
+                 },
+                 success: function(response) {
+                    $('#0').addClass('d-none')
+                }
+             })
+        })
+
+}
+
 </script>
 <?php
 footerASRI(true);

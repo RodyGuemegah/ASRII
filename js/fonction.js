@@ -35,3 +35,23 @@ function swalDeconnexion() {
     )
 }
 
+
+function swalConfirm(message='') {
+    if(message == '')message= 'Voulez-vous vraiment supprimer cet élément?';
+        Swal.fire({
+        title: '',
+        text: message,
+        icon: 'warning',
+        confirmButtonText: 'Confirmer',
+        cancelButtonText: 'Annuler',
+        reverseButtons: true,
+        showCancelButton: true,
+        customClass: {
+            confirmButton: "btn btn-success", // Changement de couleur
+            cancelButton: "btn btn-secondary", // Changement de couleur
+            cancelButtonBorder: "none"
+        },
+        buttonsStyling: false
+    })
+    
+}
