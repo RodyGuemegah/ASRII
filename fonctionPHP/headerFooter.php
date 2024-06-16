@@ -64,7 +64,7 @@ function headerASRI($sousDossier, $navBar = 1)
                         <li class="nav-item">
                             <a class="nav-link" href="#">Recherche</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="display: flex;">
                             <?php if (Veriflogin()) echo '<i onclick="swalDeconnexion()" class="fa-solid fa-right-from-bracket fa-lg m-auto"></i>';
                             else echo "<a class='nav-link' href='" . $sousDossier . "pageHtml/Connexion.html.php?inscrit=1'>Se connecter</a>"; ?>
                         </li>
@@ -72,7 +72,7 @@ function headerASRI($sousDossier, $navBar = 1)
                     <?php
                     if ($droits != '') {
                         if ($droits == 1){?>
-                            <ul class="navbar-nav mr-2">
+                            <ul class="navbar-nav mr-2" style="margin-right: 50px;">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace Administrateur</a>
                                     <ul class="dropdown-menu">
@@ -86,20 +86,18 @@ function headerASRI($sousDossier, $navBar = 1)
                         <?php }
 
                         if ($droits == 2){?>
-                            <ul class="navbar-nav mr-2">
+                            <ul class="navbar-nav mr-2" style="margin-right: 50px;">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace entreprise</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Recrutez en alternance</a></li>
-                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
-                                                d'alternance</a></li>
-                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="<?= $sousDossier . 'pageHtml/EntrepriseProjet.html.php' ?>">Projets tuteurés</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/EntrepriseAlternance.html.php' ?>">Offres d'Alternances</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         <?php }
                         if ($droits == 3){?>
-                            <ul class="navbar-nav mr-2">
+                            <ul class="navbar-nav mr-2" style="margin-right: 50px;">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace enseignant</a>
                                     <ul class="dropdown-menu">
@@ -111,7 +109,7 @@ function headerASRI($sousDossier, $navBar = 1)
                             </ul>
                         <?php }
                         if ($droits == 4){?>
-                            <ul class="navbar-nav mr-2">
+                            <ul class="navbar-nav mr-2" style="margin-right: 50px;">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace etudiant</a>
                                     <ul class="dropdown-menu">
