@@ -58,7 +58,7 @@ function CreationCompte()
         $nbOccurance= mysqli_num_rows($result);
          if ($nbOccurance == 0) {
              $mdpHash = password_hash($_POST['mdp1'], PASSWORD_DEFAULT);
-             $queryInsert = $mysqli->query("INSERT INTO User (Mail, Nom, Mot_de_passe, Privilege, Siret, Date_creation) VALUES ('" . $_POST['mail'] . "', '" . $_POST['nom'] . "', '" . $mdpHash . "', '" . $_POST['privilege'] . "', '" . $_POST['siret'] . "', NOW())");
+             $queryInsert = $mysqli->query("INSERT INTO User (Mail, Nom, Prenom, Mot_de_passe, Privilege, Siret, Date_creation) VALUES ('" . $_POST['mail'] . "', '" . $_POST['nom'] . "', '" . $_POST['prenom'] . "', '" . $mdpHash . "', '" . $_POST['privilege'] . "', '" . $_POST['siret'] . "', NOW())");
              header("Location: ../PageHtml/Connexion.html.php?inscrit=1");
              exit;
          }

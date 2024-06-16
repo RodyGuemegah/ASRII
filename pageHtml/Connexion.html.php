@@ -21,6 +21,9 @@ else $inscrit=0;
                         <label for="nom" class="form-label mt-4">Nom</label>
                         <input type="text" class="form-control" id="nom" name="nom" placeholder="ex:gabr" required>
 
+                        <label for="prenom" class="form-label mt-4">prenom</label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="ex:gabr" required>
+
                         <label for="mdp1" class="form-label mt-4">Mot de passe</label>
                         <input type="password" class="form-control" id="mdp1" name="mdp1" placeholder="8 carct min"  required>
 
