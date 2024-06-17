@@ -33,8 +33,8 @@ else $inscrit=0;
                         <input class="d-none" value="1" name="privilege" type="text">
                     <!-- DIV NUMERO DE SIRET QUI APPARAIT UNIQUEMENT QUAND ENTREPRISE EST SELECTIONE  -->
                         <div class="" id="siretDiv">
-                            <label for="siret" class="form-label mt-4">Numéro de siret</label>
-                            <input type="number" class="form-control" id="siret" name="siret" placeholder="ex:numéro de siret" required>
+                            <label for="siret" class="form-label mt-4">Numéro de siret - facultatif</label>
+                            <input type="number" class="form-control" id="siret" name="siret" placeholder="ex:numéro de siret" >
                         </div>
 
                         <label for="showMdp" class="form-label mt-4">Afficher le mot de passe</label>

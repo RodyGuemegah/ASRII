@@ -17,7 +17,7 @@ else $file='';
 if(isset($_GET['deleteSupp']))$deleteSupp=$_GET['deleteSupp'];
 else $deleteSupp=false;
 
-if(isset($_GET['Id_supdelp']))$Id_supdelp=$_GET['Id_supdelp'];
+if(isset($_GET['Id_supdel']))$Id_supdelp=$_GET['Id_supdel'];
 else $Id_supdelp=false;
 
 if(isset($_POST['action']))$action=$_POST['action'];
