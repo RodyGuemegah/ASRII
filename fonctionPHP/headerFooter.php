@@ -80,6 +80,7 @@ function headerASRI($sousDossier, $navBar = 1)
                                         <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
                                                 d'alternance</a></li>
                                         <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas"  href="<?= $sousDossier . 'fonctionPHP/administrateur.php?page=user' ?>">Gérer les utilisateurs</a></li>
                                     </ul>
                                 </li>
                             </ul>
