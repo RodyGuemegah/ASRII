@@ -19,6 +19,10 @@ switch ($page) {
         note($id);
         break;
 
+    case 'classe':
+        classe($id);
+        break;
+
     default:
         listeSupport($id);
 }
@@ -206,7 +210,31 @@ function note($id)
     echo '<script src="../js/fonction.js"></script>';
 }
 
-
+function classe($id){
+    include "BDD.php";
+    $classe=$mysqli->query("SELECT cl.*,cle.*,u.Nom,u.Prenom,u.Mail FROM Classe cl, Classe_eleve cle, User u WHERE cl.Id_prof = $id AND cle.Id_classe=cl.Id_classe AND cle.Id_eleve=u.Id_user ");
+?>
+    <div class=" m-2 fs-4"><b>Mes classes</b></div>
+    <table class="table table-border table-striped table-hover rounded w-75 m-auto mb-5 mt-5">
+        <tr>
+            <th>Classe n°</th>
+            <th>Classe</th>
+            <th>Elève</th>
+            <th>Mail</th>
+        </tr>
+        <?php
+        $i = 0;
+        foreach ($classe as $eleve) {
+            $i++;
+            echo "<tr><td>" . $eleve['Id_classe'] . "</td>";
+            echo "<td>" . $eleve['Nom_classe'] . "</td>";
+            echo "<td>" . $eleve['Nom'] . '  '. $eleve['Prenom'] . "</td>";
+            echo "<td>" . $eleve['Mail']."</td>";
+        }
+        ?>
+    </table>
+<?php
+}
 
 
 

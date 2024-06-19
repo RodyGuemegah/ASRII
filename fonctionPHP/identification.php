@@ -14,6 +14,7 @@ function GetU_ID()
         $token = $_COOKIE["token"];
         $indexsql = $mysqli->query("SELECT Id_user FROM User WHERE Token = '$token'");
         $index = $indexsql->fetch_assoc(); 
+        // print_r($index);
         $U_ID = $index['Id_user']; 
         return $U_ID;
     }else return 0;

@@ -109,8 +109,10 @@ function headerASRI($sousDossier, $navBar = 1)
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Espace enseignant</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'fonctionPHP/enseignant.php' ?>">Créer un support de cours</a></li>
-                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Emploi du temps </a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'fonctionPHP/enseignant.php?page=cours&id='.$id ?>">Créer un support de cours</a></li>
+                                        <li><a class="dropdown-item"  href="<?= $sousDossier . 'fonctionPHP/enseignant.php?page=note&id='.$id ?>">Ajouter une note</a></li>
+                                        <li><a class="dropdown-item"  href="<?= $sousDossier . 'fonctionPHP/enseignant.php?page=edt&id='.$id ?>">Emploi du temps </a></li>
+                                        <li><a class="dropdown-item"  href="<?= $sousDossier . 'fonctionPHP/enseignant.php?page=classe&id='.$id ?>">Voir mes classes </a></li>
                                     </ul>
                                 </li>
                             </ul>
