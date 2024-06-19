@@ -71,6 +71,13 @@ function headerASRI($sousDossier, $navBar = 1)
                     </ul>
                     <?php
                     if ($droits != '') {
+                        if ($droits == 0){?>
+                            <ul class="navbar-nav mr-2" style="margin-right: 50px;">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" onclick="toast('Votre compte est en cours de validation par l\'administrateur...','info')">En attente d'un espace</a>
+                                </li>
+                            </ul>
+                        <?php }
                         if ($droits == 1){?>
                             <ul class="navbar-nav mr-2" style="margin-right: 50px;">
                                 <li class="nav-item dropdown">
@@ -80,7 +87,7 @@ function headerASRI($sousDossier, $navBar = 1)
                                         <li><a class="dropdown-item" href="<?= $sousDossier . 'pageHtml/formEntreprise.html.php' ?>">Déposez une offre
                                                 d'alternance</a></li>
                                         <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasEspaceEntreprise">Déposer un projet tutoré</a></li>
-                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas"  href="<?= $sousDossier . 'fonctionPHP/administrateur.php?page=user' ?>">Gérer les utilisateurs</a></li>
+                                        <li><a class="dropdown-item" href="<?= $sousDossier . 'fonctionPHP/administrateur.php?page=user' ?>">Gérer les utilisateurs</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -186,9 +193,9 @@ function footerASRI($sousDossier)
                     <div class="col-md-4">
                         <h4>Contactez-nous</h4>
                         <ul>
-                            <li>Email: Camping.deLaprairie@gmail.com</li>
+                            <li>Email: Evry-service@gmail.com</li>
                             <li>Téléphone: +12345677589</li>
-                            <li>Adresse: 25 avenue du soleil - 91700</li>
+                            <li>25 Cours Roméro </li>
                         </ul>
                     </div>
                     <div class="col-md-2">
