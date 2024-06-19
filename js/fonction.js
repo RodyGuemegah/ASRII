@@ -17,16 +17,13 @@ function swalDeconnexion() {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: "fonctionPHP/identification.php",
+                url: "../fonctionPHP/identification.php",
                 dataType: 'json',
                 data: {
                     deconnexion: true,
                 },
                 success: function (response) {
-                    var data = JSON.parse(response);
-                    if (data.redirect) {
-                        window.location.href = '../index.php';
-                    }
+                    window.location.href = '../index.php';
                 }
             }
             )
@@ -54,4 +51,46 @@ function swalConfirm(message='') {
         buttonsStyling: false
     })
     
+}
+
+
+function alertSave(msg) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    Toast.fire({
+        icon: "success",
+        title: msg
+    });
+
+}
+
+function toast(msg,icon=''){
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    Toast.fire({
+        icon: icon,
+        title: msg
+    });
+
 }

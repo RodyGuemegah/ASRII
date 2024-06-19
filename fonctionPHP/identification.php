@@ -58,7 +58,7 @@ function CreationCompte()
         $nbOccurance= mysqli_num_rows($result);
          if ($nbOccurance == 0) {
              $mdpHash = password_hash($_POST['mdp1'], PASSWORD_DEFAULT);
-             $queryInsert = $mysqli->query("INSERT INTO User (Mail, Nom, Prenom, Mot_de_passe, Privilege, Siret, Date_creation) VALUES ('" . $_POST['mail'] . "', '" . $_POST['nom'] . "', '" . $_POST['prenom'] . "', '" . $mdpHash . "', '" . $_POST['privilege'] . "', '" . $_POST['siret'] . "', NOW())");
+             $queryInsert = $mysqli->query("INSERT INTO User (Mail, Nom, Prenom, Mot_de_passe, Privilege, Siret, Date_creation) VALUES ('" . $_POST['mail'] . "', '" . $_POST['nom'] . "', '" . $_POST['prenom'] . "', '" . $mdpHash . "', '" . '0' . "', '" . $_POST['siret'] . "', NOW())");
              header("Location: ../PageHtml/Connexion.html.php?inscrit=1");
              exit;
          }
@@ -78,7 +78,7 @@ function Connexion()
             if ($queryConnexion) {
                 if (password_verify($MdpConnexion, $result[0]["Mot_de_passe"])) {
                     $token = bin2hex(random_bytes(32));
-                    $mysqli->query("UPDATE `User` SET `TOKEN` = '$token' WHERE Mail = '$mailConnexion'");
+                    $mysqli->query("UPDATE `User` SET `Token` = '$token' WHERE Mail = '$mailConnexion'");
                     setcookie("token", $token, time() + 3600, "/");
                     setcookie("Mail", $mailConnexion, time() + 3600, "/");
                     echo " le mdp est bon connexion reussi  ";
@@ -124,6 +124,8 @@ function Deconnexion()
     setcookie("Mail", "", time() - 1, "/");
     setcookie("token", "", time() - 1, "/");
     json_encode(array("redirect" => true));
+    header("Location: ../index.php");
+    exit();
 
 }
 
